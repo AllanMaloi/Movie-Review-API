@@ -13,7 +13,10 @@ class ReviewListCreateView(generics.ListCreateAPIView):
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['movie__title', 'rating']
     ordering_fields = ['rating', 'created_at']  
-    ordering = ['-created_at']  
+    ordering = ['-created_at']
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user) 
 
 class MovieReviewListView(generics.ListAPIView):
     serializer_class = ReviewSerializer
