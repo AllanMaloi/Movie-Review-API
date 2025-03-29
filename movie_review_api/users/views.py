@@ -22,11 +22,9 @@ class LoginView(generics.GenericAPIView):
             "access": str(refresh.access_token),
         }, status=status.HTTP_200_OK)
     
-
-class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = CustomUser.objects.all()
+class UserDetailView(generics.RetrieveUpdateAPIView):  # No need for Destroy
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self):
-        return self.request.user
+        return self.request.user  # This ensures the user retrieves their own profile
