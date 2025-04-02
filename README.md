@@ -66,9 +66,9 @@ python manage.py runserver
    Body (JSON, raw):
 
    {
-    "email": "testuser@example.com",
-    "username": "testuser",
-    "password": "testpassword"
+    "email": "olemaloi@gmail.com",
+    "username": "David",
+    "password": "david123"
 }
    Expected Response:
 
@@ -82,16 +82,10 @@ python manage.py runserver
    Body (JSON, raw):
 
    {
-    "email": "testuser@example.com",
-    "password": "testpassword"
+    "email": "olemaloi@gmail.com",
+    "password": "david123"
 }
-
-Expected Response:
-
-200 OK with access and refresh tokens.
-
-Copy the access token for authentication in the next requests.
-
+expected response : a view of the user. 
 
                    Movies Endpoints
 
@@ -104,7 +98,7 @@ Copy the access token for authentication in the next requests.
     Body (JSON, raw):
 
 {
-    "title": "Mission: Impossible – Dead Reckoning Part Two",
+    "title": "Mission: Impossible – Dead Reckoning Part 1",
     "description": "An action thriller movie.",
     "release_date": "2025-05-10"
 }
